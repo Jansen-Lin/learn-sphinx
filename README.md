@@ -10,6 +10,8 @@
 
 https://www.freecodecamp.org/news/how-to-setup-virtual-environments-in-python/
 
+https://kedro.readthedocs.io/en/stable/tutorial/package_a_project.html
+
 ## Notes
 
 __reStructuredText__ <br>
@@ -78,11 +80,94 @@ python3 -m pip install sphinx-autobuild
 sphinx-autobuild docs docs/_build/html
 
 
+## Notes 2 (for Kedro)
+
+...
 
 
 
+## Notes from official documentation
+
+```
+sphinx-build -b html sourcedir builddir
+```
+I try this from project root folder
+```
+sphinx-build -b html docs/source funny
+```
 
 
+## __The actual instructions I used__
 
+Navigate to project root folder
+```
+# On anaconda powershell
+cd C:\Users\Jansen-Lin\github-local-repo\learn-sphinx
+```
+Create `docs\` folder if haven't done so
+```
+mkdir docs
+```
 
+Create Virtual Environment
+```
+python -m venv .env
+```
 
+Activate the virtual environment
+```
+# On anaconda powershell
+.env/Scripts/Activate.ps1
+
+# On Git Bash
+source .env/Scripts/activate
+
+# On CMD
+.env/Scripts/activate.bat
+```
+
+Install Sphinx in virtual environment
+```
+python -m pip install sphinx
+```
+
+Getting started on Sphinx
+```
+cd docs
+sphinx-quickstart
+```
+
+Install choco
+```
+choco install make
+```
+
+To build the docs
+```
+cd docs
+
+make html
+```
+The HTML pages created are found in `docs/build/html/`
+
+Now you can open `docs/build/html/index.html` with your favourite browser.
+
+Here is a third party extension to auto rebuild a documentation.
+To install it...
+```
+python -m pip install sphinx-autobuild
+```
+
+To auto rebuild the docs...
+Navigate to the project root
+```
+cd C:\Users\Jansen-Lin\github-local-repo\learn-sphinx
+```
+```
+sphinx-autobuild docs docs/build/html
+```
+
+To deactivate 
+```
+deactivate
+```
